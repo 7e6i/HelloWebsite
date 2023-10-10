@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Current Ranking</title>
 </head>
 
@@ -38,12 +39,12 @@
     };
 </script>
 
-<table>
+<table id="tb1">
   <tr>
     <th>Name</th>
-    <th>Base Score</th>
-    <th>Fan Score</th>
-    <th>Total Score</th>
+    <th>Score</th>
+    <th>Popularity</th>
+    <th>Total</th>
   </tr>
 
   <tr>
@@ -54,12 +55,36 @@
     <td><button type="button" onclick="hello()">+</button></td>
 
   </tr>
+
+     <script>
+            fetch("data.json")
+                .then(response => response.json())
+                .then(data => {
+                    for (var i = 0; i<data.items.length; i++){
+                        let vName = data.items[i].Name;
+                        let vScore = data.items[i].Score;
+                        let vPopularity = data.items[i].Popularity;
+                        let vTotal = data.items[i].Total;
+                            document.querySelector("#tb1").innerHTML += `
+                                <tr>
+                                    <td>${vName}</td>
+                                    <td>${vScore}</td>
+                                    <td>${vPopularity}</td>
+                                    <td>${vTotal}</td>
+                                </tr>`;
+                    }
+                })
+        </script>
+
+
+
+
 </table>
 
 
-<button type="button" onclick="hello()">+</button>
 
-<p><a id="clicks">0</a></p>
+
+
 
 </body>
 </html>

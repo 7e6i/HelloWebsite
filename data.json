@@ -1,4 +1,16 @@
 {
-  "Zeus": {"Score": 1000, "Popularity": 1000, "Total": 2000},
-  "Apollo": {"Score": 700, "Popularity": 1500, "Total": 2200}
+  "items": [
+  {"Name": "Zeus", "Score": 1000, "Popularity": 1000, "Total": 2000},
+  {"Name": "Hera", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Demeter", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Wings", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Hercules", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Iris", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Venus", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Aphrodite", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Hephaestus", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "idk", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Person1", "Score": 700, "Popularity": 1500, "Total": 2200},
+    {"Name": "Person2", "Score": 700, "Popularity": 1500, "Total": 2700}
+  ]
 }
