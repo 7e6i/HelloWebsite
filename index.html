@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-    <title>Title</title>
-    <style>
-        body {
-            padding: 25px;
-            background-color: white;
-            color: black;
-            font-size: 25px;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
+    <title>Roman Emperors</title>
 
-        .light-mode {
-            background-color: white;
-            color: black;
-        }
-    </style>
 </head>
+
+<header>
+    <div id="top-header">
+        <nav>
+            <div id="menu">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="list.html">List</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
 
 <body>
 
-<h1>Super awesome webpage.</h1>
+<h1>The Ultimate Roman Emperor Hierarchy</h1>
 
-<p>some text and stuff</p>
+<p>Everyone liked to say they were the best, but there can only be one 1st place.</p>
+
+<img src="alpha.png">
+
 
 <h2>Current date and time:</h2>
 <span id="datetime"></span>
@@ -47,26 +54,9 @@
     }
 
     // call the `updateDateTime` function every second
-    setInterval(updateDateTime, 1000);
+    setInterval(updateDateTime, 100);
 </script>
 
-<h3 id="DarkModetext">Dark Mode is OFF</h3>
-<button onclick="darkMode()">Darkmode</button>
-<button onclick="lightMode()">LightMode</button>
-<script>
-    function darkMode() {
-        let element = document.body;
-        let content = document.getElementById("DarkModetext");
-        element.className = "dark-mode";
-        content.innerText = "Dark Mode is ON";
-    }
-    function lightMode() {
-        let element = document.body;
-        let content = document.getElementById("DarkModetext");
-        element.className = "light-mode";
-        content.innerText = "Dark Mode is OFF";
-    }
-</script>
 
 
 </body>

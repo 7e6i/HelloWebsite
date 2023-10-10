@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Ranking</title>
+</head>
+
+<header>
+    <div id="top-header">
+        <nav>
+            <div id="menu">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="list.html">List</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+<body>
+
+<h1>very cool list</h1>
+
+<script type="text/javascript">
+
+    var clicks = 0;
+    function hello() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+    };
+</script>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Base Score</th>
+    <th>Fan Score</th>
+    <th>Total Score</th>
+  </tr>
+
+  <tr>
+    <td>Apollo</td>
+    <td>700</td>
+    <td>1500</td>
+    <td id="clicks">2200</td>
+    <td><button type="button" onclick="hello()">+</button></td>
+
+  </tr>
+</table>
+
+
+<button type="button" onclick="hello()">+</button>
+
+<p><a id="clicks">0</a></p>
+
+</body>
+</html>
