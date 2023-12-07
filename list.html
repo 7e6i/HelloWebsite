@@ -30,56 +30,7 @@
 
 <h1>very cool list</h1>
 
-<script type="text/javascript">
 
-    var clicks = 0;
-    function hello() {
-        clicks += 1;
-        document.getElementById("clicks").innerHTML = clicks;
-    };
-</script>
-
-<table id="tb1">
-  <tr>
-    <th>Name</th>
-    <th>Score</th>
-    <th>Popularity</th>
-    <th>Total</th>
-  </tr>
-
-  <tr>
-    <td>Apollo</td>
-    <td>700</td>
-    <td>1500</td>
-    <td id="clicks">2200</td>
-    <td><button type="button" onclick="hello()">+</button></td>
-
-  </tr>
-
-     <script>
-            fetch("data.json")
-                .then(response => response.json())
-                .then(data => {
-                    for (var i = 0; i<data.items.length; i++){
-                        let vName = data.items[i].Name;
-                        let vScore = data.items[i].Score;
-                        let vPopularity = data.items[i].Popularity;
-                        let vTotal = data.items[i].Total;
-                            document.querySelector("#tb1").innerHTML += `
-                                <tr>
-                                    <td>${vName}</td>
-                                    <td>${vScore}</td>
-                                    <td>${vPopularity}</td>
-                                    <td>${vTotal}</td>
-                                </tr>`;
-                    }
-                })
-        </script>
-
-
-
-
-</table>
 
 
 
