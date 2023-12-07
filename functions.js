@@ -12,4 +12,4 @@ function generateRandom() {
 
   document.querySelector('#random').textContent = n;
 }
-setInterval(generateRandom, 500);
+setInterval(generateRandom, 1000);
