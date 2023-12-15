@@ -4,6 +4,7 @@ function updateDateTime() {
   const currentDateTime = now.toLocaleString();
   document.querySelector('#datetime').textContent = currentDateTime;
 }
+updateDateTime();
 setInterval(updateDateTime, 100);
 
 
@@ -12,4 +13,5 @@ function generateRandom() {
 
   document.querySelector('#random').textContent = n;
 }
+generateRandom();
 setInterval(generateRandom, 1000);
