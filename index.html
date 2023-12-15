@@ -4,45 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Spencer Anderson</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <script type="text/javascript" src="functions.js"></script>
 
-<nav>
+<div class="tabs is-left is-medium has-background-info-light">
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="list.html">List</a></li>
-    </ul>
-</nav>
+    <li class="is-active">
+        <a href="index.html">
+            <span class="icon-text">
+              <span class="icon">
+                <img src="assets/home-flood.svg">
+              </span>
+              <span>Home</span>
+            </span>
+        </a>
+    </li>
 
-
-<body class="body">
-
-<h1 class="center Large arial">Hello, I am Spencer Anderson.</h1>
-
-<p class="center">As you can tell, I don't know much about web design.</p>
-
-
-<div class="columns">
-    <div class="column is-6">
-        <h2>Current date and time:</h2>
-        <div id="datetime"></div>
-    </div>
-
-    <div class="column is-6">
-        <h2>Random number [1,1000]</h2>
-        <div id="random" class="LARGE arial">341</div>
-
-    </div>
-
-
+    <li><a href="list.html">
+        <span class="icon-text">
+              <span class="icon">
+                <img src="assets/list-box.svg">
+              </span>
+              <span>Page 2</span>
+        </span>
+    </a ></li>
+    <li><a>Page 2</a></li>
+  </ul>
 </div>
 
 
-<h3>Achievements</h3>
+<body>
+
+    <div class="content">
+        <h1 class="title has-text-centered is-normal">Hello, I am Spencer Anderson.</h1>
+        <blockquote class="has-text-centered is-small">As you can tell, I don't know much about web design.</blockquote>
+    </div>
+
+
+
+
+<div class="columns is-vcentered has-text-centered">
+    <div class="column is-size-3 has-background-light" style="
+            margin: 50px;
+            border-radius: 25px;">
+        <div class="is-medium">Current date and time:</div>
+        <div id="datetime" class="is-family-code"></div>
+    </div>
+
+    <div class="column" >
+        <img src="assets/logo.jpg" width="200" height="200" style="
+            border-radius: 25px;"></div>
+
+    <div class="column is-size-3 has-background-primary-light" style="
+            margin: 50px;
+            border-radius: 25px;">
+        <div>Random number [1,1000]</div>
+        <div id="random" class="is-family-code is-size-1">341</div>
+
+    </div>
+</div>
+
+
+<h3 class="section">Achievements</h3>
 <br>
 <p>
     idk stuff
