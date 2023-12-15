@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-    <title>Spencer Anderson</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+        <title>Spencer Anderson</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script type="text/javascript" src="functions.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="functions.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-</head>
+    </head>
 
 
 
-<div class="tabs is-left is-medium has-background-info-light">
-    <ul>
-    <li class="is-active">
-        <a href="index.html">
+    <div class="tabs is-left is-medium has-background-info-light">
+        <ul>
+        <li class="is-active">
+            <a href="index.html">
+                <span class="icon-text">
+                  <span class="icon">
+                    <img src="assets/home-flood.svg">
+                  </span>
+                  <span>Home</span>
+                </span>
+            </a>
+        </li>
+
+        <li><a href="papers.html">
             <span class="icon-text">
-              <span class="icon">
-                <img src="assets/home-flood.svg">
-              </span>
-              <span>Home</span>
+                  <span class="icon">
+                    <img src="assets/list-box.svg">
+                  </span>
+                  <span>Papers</span>
             </span>
-        </a>
-    </li>
-
-    <li><a href="list.html">
-        <span class="icon-text">
-              <span class="icon">
-                <img src="assets/list-box.svg">
-              </span>
-              <span>Page 2</span>
-        </span>
-    </a ></li>
-    <li><a>Page 2</a></li>
-  </ul>
-</div>
-
-
-<body>
-
-    <div class="content">
-        <h1 class="title has-text-centered is-normal">Hello, I am Spencer Anderson.</h1>
-        <blockquote class="has-text-centered is-small">As you can tell, I don't know much about web design.</blockquote>
+        </a ></li>
+        <li><a>Page 2</a></li>
+      </ul>
     </div>
 
 
+    <body>
 
+        <div class="section has-text-centered has-content-centered">
+            <h1 class="title is-size-2">Hello, I am Spencer Anderson.</h1>
 
-<div class="columns is-vcentered has-text-centered">
-    <div class="column is-size-3 has-background-light" style="
-            margin: 50px;
-            border-radius: 25px;">
-        <div class="is-medium">Current date and time:</div>
-        <div id="datetime" class="is-family-code"></div>
-    </div>
+            <div class="content">
+                <blockquote style="max-width:500px; float:center;">As you can tell, I don't know much about web design.</blockquote>
+            </div>
 
-    <div class="column" >
-        <img src="assets/logo.jpg" width="200" height="200" style="
-            border-radius: 25px;"></div>
+        </div>
 
-    <div class="column is-size-3 has-background-primary-light" style="
-            margin: 50px;
-            border-radius: 25px;">
-        <div>Random number [1,1000]</div>
-        <div id="random" class="is-family-code is-size-1">341</div>
+        <hr>
 
-    </div>
-</div>
+        <div class="section">
+            <div class="columns is-vcentered has-text-centered">
+                <div class="column is-size-3 has-background-light" style="
+                        margin: 50px;
+                        border-radius: 25px;">
+                    <div class="is-medium">Current date and time:</div>
+                    <div id="datetime" class="is-family-code"></div>
+                </div>
 
+                <div class="column" >
+                    <img src="assets/logo.jpg" width="200" height="200" style="
+                        border-radius: 25px;"></div>
 
-<section class="section">
-    <div>math stuff</div>
-    <div>When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</div>
-</section>
+                <div class="column is-size-3 has-background-primary-light" style="
+                        margin: 50px;
+                        border-radius: 25px;">
+                    <div>Random number [1,1000]</div>
+                    <div id="random" class="is-family-code is-size-1">341</div>
 
-</body>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <section class="section is-size-4 has-text-centered">
+            <div>When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</div>
+        </section>
+
+    </body>
 </html>
