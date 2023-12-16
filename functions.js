@@ -48,7 +48,7 @@ age();
 function color(){
 
     const rows = 10;
-    const cols = 60;
+    const cols = 80;
 
     var x = Math.floor(Math.random()*rows).toString();
     var y = Math.floor(Math.random()*cols).toString();
