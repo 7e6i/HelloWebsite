@@ -7,6 +7,8 @@
         <title>Spencer Anderson</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <link rel="stylesheet" href="style.css">
+
         <script type="module" src="functions.js"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -64,25 +66,46 @@
             <div class="title is-size-2 has-text-centered">About me</div>
 
             <div class="columns has-text-centered">
-                <div class="column is-primary">
-                    <div class="title is-size-4">Height</div>
-                    <div class="is-size-5">\(5.8\cdot10^{-17}\) parsecs</div>
+
+                <div class="column"
+                     style="margin:30px; border-radius: 25px; background-color:aquamarine">
+
+                    <span class="title is-size-4 icon-text">
+                        <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
+                        <span>Height</span>
+                    </span>
+
+
+                    <div class="subtitle is-size-4">\(5.8\cdot10^{-17}\) parsecs</div>
                 </div>
 
-                <div class="column">
-                    <div class="title is-size-4">Weight</div>
-                    <div class="is-size-5">\(340,000\) carats</div>
+                <div class="column" style="margin:30px; border-radius: 25px; background-color:aquamarine">
+                    <span class="title is-size-4 icon-text">
+                        <span class="icon"><i class="fa-solid fa-weight-scale"></i></span>
+                        <span>Weight</span>
+                    </span>
+                    <div class="subtitle is-size-4">\(340,000\) carats</div>
                 </div>
 
-                <div class="column">
-                    <div class="title is-size-4">Age</div>
-                    <div id="age" class="is-size-5">\(5.88\cdot20^{-27}\)</div>
+                <div class="column" style="margin:30px; border-radius: 25px; background-color:aquamarine">
+                    <span class="title is-size-4 icon-text">
+                        <span class="icon"><i class="fa-solid fa-hourglass-start"></i></span>
+                        <span>Age</span>
+                    </span>
+                    <div id="age" class="subtitle is-size-4"></div>
                 </div>
 
-                <div class="column">
-                    <div class="title is-size-4">Gender</div>
-                    <div class="is-size-4"><i class="fa-solid fa-otter"></i></div>
+                <div class="column" style="margin:30px; border-radius: 25px; background-color:aquamarine">
+                    <span class="title is-size-4 icon-text">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <span>SSN</span>
+                    </span>
+                    <div class="subtitle is-size-4">\(\text{314-15-9265}\)</div>
                 </div>
+            </div>
+
+            <div class="content has-text-centered is-size-5">
+                <em><i class="fa-solid fa-leaf"></i> 100% Uranium free! <i class="fa-solid fa-wheat-awn"></i> Gluten mandatory! <i class="fa-solid fa-fish"></i> Partially aquatic!</em>
             </div>
 
             <hr>
