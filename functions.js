@@ -60,5 +60,17 @@ function color(){
     }
 
 }
-
 setInterval(color, 1);
+
+
+function test(){
+
+    var element = document.getElementById("counter");
+    if (element){
+        const plus = parseInt(element.textContent) +1
+        element.textContent = plus;
+
+        var data = {"counter":plus}
+
+    }
+}
