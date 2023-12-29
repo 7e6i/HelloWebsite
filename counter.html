@@ -24,17 +24,32 @@
 
     <body>
         <div class="section has-text-centered">
+            <button onclick="reset()" class="button is-danger is-size-2" style="width:70vw; height:7vh;">Reset</button>
+            <hr>
 
-        </div>
 
-        <hr>
+            <div class="columns is-vcentered has-text-centered is-mobile">
+                <div class="column">
+                    <button class="button is-success is-size-3">Start</button>
+                </div>
 
-        <div class="section has-text-centered">
-            <button onclick="increase()" id="counter" class="button is-primary is-size-1" style="width:45vw; height:25vh;">0</button>
+                <div class="column">
+                    <div class="content has-text-centered is-size-2" id="seconds">0 sec</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="content has-text-centered is-size-2" id="rate">0 sec/n</div>
+
+            <hr>
+
+            <button onclick="increase()" id="counter" class="button is-dark has-text-light is-size-1" style="width:45vw; height:25vh;">0</button>
 
             <br>
             <br>
-            <button onclick="decrease()" class="button" id="decrease" style="width:25vw; height:15vh">-1</button>
+
+            <button onclick="decrease()" class="button is-warning is-size-3" style="width:35vw; height:15vh">-1</button>
 
         </div>
 
