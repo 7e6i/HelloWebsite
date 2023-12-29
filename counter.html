@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="style.css">
 
         <!-- type="module" idk does something-->
-        <script src="test.js"></script>
+        <script src="counter.js"></script>
 
         <script src="functions.js"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -24,29 +24,21 @@
 
     <body>
         <div class="section has-text-centered">
-            <button onclick =
 
         </div>
 
+        <hr>
 
         <div class="section has-text-centered">
-            <button onclick="test()" id="increase" class="button is-primary is-size-4">button </button>
+            <button onclick="increase()" id="counter" class="button is-primary is-size-1" style="width:45vw; height:25vh;">0</button>
 
-            <div class="title" id="counter">0</div>
+            <br>
+            <br>
+            <button onclick="decrease()" class="button" id="decrease" style="width:25vw; height:15vh">-1</button>
 
         </div>
 
-        <script type="text/javascript">
-            function load(){
-                console.log(data.counter);
-                var element = document.getElementById("counter");
-                if (element){
-                    element.textContent = data.counter;
-                }
-            }
 
-            load();
-        </script>
 
     </body>
 
