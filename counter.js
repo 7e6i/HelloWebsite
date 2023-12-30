@@ -1,4 +1,3 @@
-var audio = new Audio("documents/sound.mp3");
 
 function increase(){
 
@@ -17,6 +16,7 @@ function increase(){
 
     }
 
+    var audio = new Audio("documents/sound.mp3");
 
     audio.play();
 
