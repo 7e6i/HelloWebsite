@@ -1,4 +1,5 @@
 
+
 function increase(){
 
     var counter = document.getElementById("counter");
@@ -16,9 +17,8 @@ function increase(){
 
     }
 
-    var audio = new Audio("documents/sound.mp3");
-
-    audio.play();
+    //var audio = new Audio("documents/sound.mp3");
+    //audio.play();
 
 }
 

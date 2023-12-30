@@ -1,3 +1,8 @@
+var audio = new Audio("documents/sound.mp3");
+document.getElementById('counter').addEventListener('click', function(){audio.play()} , false);
+document.getElementById('counter').addEventListener('touchstart', function(){audio.play()} , false);
+
+
 
 function timer(){
     var seconds = document.getElementById("seconds");
