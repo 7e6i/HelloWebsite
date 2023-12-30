@@ -1,6 +1,9 @@
-var audio = new Audio("documents/sound.mp3");
-document.getElementById('counter').addEventListener('click', function(){audio.play()} , false);
-document.getElementById('counter').addEventListener('touchstart', function(){audio.play()} , false);
+var audio1 = new Audio("documents/tap.mp3");
+var audio2 = new Audio("documents/whoosh.mp3");
+document.getElementById('counter').addEventListener('click', function(){audio1.play()} , false);
+document.getElementById('counter').addEventListener('touchstart', function(){audio1.play()} , false);
+document.getElementById('decrease').addEventListener('click', function(){audio2.play()} , false);
+document.getElementById('decrease').addEventListener('touchstart', function(){audio2.play()} , false);
 
 
 
