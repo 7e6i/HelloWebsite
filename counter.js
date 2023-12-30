@@ -1,26 +1,43 @@
 function increase(){
 
-    var element = document.getElementById("counter");
+    var counter = document.getElementById("counter");
+    var rate = document.getElementById("rate");
+    var seconds = document.getElementById("seconds");
 
-    if (element){
-        const plus = parseInt(element.textContent) +1;
-        element.textContent = plus;
+    if (counter){
+        const plus = parseInt(counter.textContent) +1;
+
+        counter.textContent = plus;
+
+        var updatedTime = (parseFloat(seconds.textContent.split(" ")[0]) +0.1).toFixed(1);
+        var updatedRate = (updatedTime / plus).toFixed(1)
+        rate.textContent = updatedRate + " sec/n";
 
     }
+
 }
 
 function decrease(){
 
-    var element = document.getElementById("counter");
+    var counter = document.getElementById("counter");
 
-    if (element){
-        const plus = parseInt(element.textContent)-1;
+    var seconds = document.getElementById("seconds");
+    var rate = document.getElementById("rate");
+
+    if (counter){
+        const plus = parseInt(counter.textContent)-1;
         if (plus<0){
             plus = 0;
         }
 
-        element.textContent = plus;
+        counter.textContent = plus;
+
+        var updatedTime = (parseFloat(seconds.textContent.split(" ")[0]) +0.1).toFixed(1);
+        var updatedRate = (updatedTime / plus).toFixed(1)
+        rate.textContent = updatedRate + " sec/n";
+
     }
+
 }
 
 function reset(){
