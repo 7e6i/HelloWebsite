@@ -1,3 +1,5 @@
+var audio = new Audio("documents/sound.mp3");
+
 function increase(){
 
     var counter = document.getElementById("counter");
@@ -14,6 +16,9 @@ function increase(){
         rate.textContent = updatedRate + " sec/n";
 
     }
+
+
+    audio.play();
 
 }
 
