@@ -26,21 +26,26 @@ function decrease(){
 
 function reset(){
 
-    var element = document.getElementById("counter");
+    var counter = document.getElementById("counter");
+    var seconds = document.getElementById("seconds");
+    var rate = document.getElementById("rate");
+    var start = document.getElementById("start");
 
-    if (element){
-        element.textContent = 0;
+    if (counter && seconds && rate){
+        counter.textContent = 0;
+        seconds.textContent = "0 sec";
+        rate.textContent = "0 sec/n";
+        start.textContent = "Start";
 
     }
 }
 
-var state = 0;
 
-function timer(){
+var seconds = 0;
+
+function startStop(){
 
     var element = document.getElementById("start");
-
-    state +=1;
 
     if (element){
         if (element.textContent == "Start"){
@@ -51,3 +56,5 @@ function timer(){
         }
     }
 }
+
+
