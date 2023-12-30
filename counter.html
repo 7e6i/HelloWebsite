@@ -18,6 +18,12 @@
     </head>
 
 
+    <script>
+        function full(){
+            document.documentElement.webkitRequestFullScreen();
+
+        }
+    </script>
 
 
     <body>
@@ -50,13 +56,17 @@
 
             <div style="display:block; margin:2vh;"></div>
 
-            <button onclick="decrease()" class="button is-warning" style="width:35vw; height:15vh; font-size:5vh">-1</button>
+            <button onclick="decrease();" class="button is-warning" style="width:35vw; height:15vh; font-size:5vh">-1</button>
 
         </div>
 
 
+        <div><button onclick="full()">fullscreen</button></div>
+
 
     </body>
+
+
 
 
 </html>

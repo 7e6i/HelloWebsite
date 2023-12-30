@@ -1,4 +1,3 @@
-
 function increase(){
 
     var element = document.getElementById("counter");
