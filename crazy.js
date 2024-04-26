@@ -1,5 +1,4 @@
-var data = {"counter": 50}
-
+var data = {"counter": 60}
 
 function color(){
 
@@ -30,3 +29,4 @@ function test(){
 
     }
 }
+

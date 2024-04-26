@@ -10,7 +10,9 @@
         <!-- type="module" idk does something-->
         <script src="crazy.js"></script>
 
-        <script src="functions.js"></script>
+        <script src="test.js" type="module"></script>
+
+
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://kit.fontawesome.com/89baa5856c.js" crossorigin="anonymous"></script>
@@ -71,6 +73,10 @@
 
 
     <body>
+<!--        <div>-->
+<!--        <iframe src="https://www.desmos.com/calculator/hwiy2pqpvc?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>-->
+<!--    </div>-->
+
         <div class="section">
 
             <div class="title is-size-4">Live pixel art</div>
@@ -124,17 +130,6 @@
 
         </div>
 
-        <script type="text/javascript">
-            function load(){
-                console.log(data.counter);
-                var element = document.getElementById("counter");
-                if (element){
-                    element.textContent = data.counter;
-                }
-            }
-
-            load();
-        </script>
 
     </body>
 
