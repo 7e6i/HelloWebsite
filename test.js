@@ -44,8 +44,7 @@ load_from_db();
 
 
 
-async function addOne(){
-
+async function addOne(n){
 
     const docSnap = await getDoc(docRef);
     const plus = docSnap.data()['count1'] + 1;
@@ -53,13 +52,36 @@ async function addOne(){
     counter.textContent = plus;
 
     console.log(plus);
-
 }
-
 document.getElementById("increase").addEventListener("click",addOne);
 
 
 
+async function addMany(n){
+
+    const docSnap = await getDoc(docRef);
+    const plus = docSnap.data()['count1'] + n;
+    await updateDoc(docRef, {"count1": plus});
+    counter.textContent = plus;
+
+    console.log(plus);
+}
+
+async function pretend(){
+    const delay = Math.floor(Math.random() * 5000)+1;
+    const n = Math.floor(Math.random() * 5)+1;
+
+    const docSnap = await getDoc(docRef);
+    const plus = docSnap.data()['count1'] + n;
+    await updateDoc(docRef, {"count1": plus});
+    counter.textContent = plus;
+
+    //console.log(plus);
+
+    setTimeout(pretend, delay);
+}
+
+pretend();
 
 
 
