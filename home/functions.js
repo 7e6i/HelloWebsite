@@ -30,16 +30,5 @@ setInterval(generateRandom, 1000);
 
 
 
-function age(){
 
-    const bday = Date.parse('01 Apr 2004 00:00:00 EST');
-    const now = new Date();
-    const age = Math.floor((now-bday)/86400000)
-
-    var element = document.getElementById("age");
-    if (element){
-        element.textContent = "\\("+age + "\\) days";
-    }
-}
-age();
 

@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="style.css">
 
-        <script type="module" src="functions.js"></script>
+
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://kit.fontawesome.com/89baa5856c.js" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
     <div class="tabs is-left is-medium" >
         <ul>
         <li >
-            <a href="index.html">
+            <a href="../index.html">
                 <span class="icon-text">
                   <span class="icon">
                     <i class="fa-brands fa-fort-awesome"></i>
@@ -54,7 +54,7 @@
         </li>
 
         <li>
-            <a href="crazy.html">
+            <a href="../fun/crazy.html">
             <span class="icon-text">
                   <span class="icon">
                     <i class="fa-solid fa-wand-sparkles"></i>
@@ -265,6 +265,20 @@
             <hr>
 
         </div>
+
+        <script>
+            function age(){
+                const bday = Date.parse('01 Apr 2004 00:00:00 EST');
+                const now = new Date();
+                const age = Math.floor((now-bday)/86400000)
+
+                var element = document.getElementById("age");
+                if (element){
+                    element.textContent = "\\("+age + "\\) days";
+                }
+            }
+            age();
+        </script>
 
 
         <footer class="footer" style="margin-50px;">

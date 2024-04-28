@@ -76,16 +76,11 @@ async function pretend(){
     await updateDoc(docRef, {"count1": plus});
     counter.textContent = plus;
 
-    //console.log(plus);
+    console.log(plus);
 
     setTimeout(pretend, delay);
 }
 
 pretend();
-
-
-
-
-
 
 
