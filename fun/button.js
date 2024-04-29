@@ -8,7 +8,7 @@
 
 // fancy firebase stuff
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-import { getFirestore,doc, getDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+import { getFirestore,doc, getDoc, getDocs, updateDoc, setDoc, query, orderBy, limit, collection} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC-mxNGZQQNFq89PYkLZ0TYlLT869nnYwQ",
@@ -63,51 +63,51 @@ async function savePoints(){
         theButton.textContent = "The Button"
     }
 
-    // if there are new points
-    else if (tempCount> 0){
+    // update the main counter
+    const countSnap = await getDoc(theCountRef);
+    const newMainCount = countSnap.data()['count'] + tempCount;
+    await updateDoc(theCountRef, {"count": newMainCount});
+    theCounter.textContent = numberWithCommas(newMainCount);
 
-        // update the main counter
-        const countSnap = await getDoc(theCountRef);
-        const newMainCount = countSnap.data()['count'] + tempCount;
-        await updateDoc(theCountRef, {"count": newMainCount});
-        theCounter.textContent = numberWithCommas(newMainCount);
+    if (tempCount>0){
         theButton.textContent = "0";
-
-        // check if it is TheCount document
-        if (currentUser["name"]==="TheCount"){
-            currentUser["count"] = newMainCount;
-            setStats(currentUser["name"], currentUser["count"]);
-        }
-
-        // otherwise update the user
-        else if (currentUser["name"] != null){
-
-            // query the name
-            const userRef = doc(db, "the_button_users", currentUser["name"]);
-            const userSnap = await getDoc(userRef);
-
-            // if the user is already created, update it
-            if (userSnap.exists()){
-                currentUser["count"] =  userSnap.data()['count'] + tempCount;
-                await updateDoc(userRef, {"count": currentUser["count"]});
-            }
-            // if not, make a new user
-            else{
-                currentUser["count"] =  tempCount;
-                await setDoc(doc(db, "the_button_users", currentUser["name"]), {"count": currentUser["count"]});
-            }
-
-            // update the screen
-            setStats(currentUser["name"], currentUser["count"])
-        }
-
-        // print out changes
-        console.log(newMainCount, currentUser["name"], currentUser["count"])
-
-        // update the temp counter
-        tempCount = 0;
-
     }
+
+    // check if it is TheCount document
+    if (currentUser["name"]==="TheCount"){
+        currentUser["count"] = newMainCount;
+        setStats(currentUser["name"], currentUser["count"]);
+    }
+
+    // otherwise update the user
+    else if (currentUser["name"] != null){
+
+        // query the name
+        const userRef = doc(db, "the_button_users", currentUser["name"]);
+        const userSnap = await getDoc(userRef);
+
+        // if the user is already created, update it
+        if (userSnap.exists()){
+            currentUser["count"] =  userSnap.data()['count'] + tempCount;
+            await updateDoc(userRef, {"count": currentUser["count"]});
+        }
+        // if not, make a new user
+        else if (tempCount > 0){
+            currentUser["count"] =  tempCount;
+            await setDoc(doc(db, "the_button_users", currentUser["name"]), {"count": currentUser["count"]});
+        }
+
+        // update the screen
+        setStats(currentUser["name"], currentUser["count"])
+    }
+
+    // print out changes
+    console.log(newMainCount, currentUser["name"], currentUser["count"])
+
+    // update the temp counter
+    tempCount = 0;
+
+    updateLeaderboard();
 
     setTimeout(savePoints, 10*1000);
 }
@@ -190,3 +190,20 @@ async function findUser(){
 document.getElementById("findUser").addEventListener("click", findUser);
 
 
+
+async function updateLeaderboard(){
+    const theButtonUsersRef = collection(db, "the_button_users");
+    const q = query(theButtonUsersRef, orderBy("count", "desc"), limit(5+1));
+
+    const querySnapshot = await getDocs(q);
+
+    var i = 0
+    for (const docSnap  of querySnapshot.docs){
+        document.getElementById(i+"name").textContent = docSnap.id;
+        document.getElementById(i+"points").textContent = numberWithCommas(docSnap.data()["count"]);
+        //console.log(docSnap.id, docSnap.data());
+        i +=1;
+    }
+
+
+}
