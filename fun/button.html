@@ -69,16 +69,18 @@
         <div class="columns has-text-centered">
             <div class="column is-half">
 
-                <div class="content is-size-5">Click the button to increase the counter.</div>
+                <div class="content is-size-5 has-background-light">Click the button to increase the counter</div>
+
+
                 <button id="theButton" class="button is-info is-size-2" style="width: 7em">The Button </button>
                 <br><br>
-                <div class="content is-size-5">Points are saved every minute by default.<br>Press save to update the counter now.</div>
-                <button id="saveButton" class="button is-warning is-size-4">Save</button>
+                <div class="content is-size-5">Points are saved every 10 seconds</div>
+                <!-- <button id="saveButton" class="button is-warning is-size-4">Save</button> -->
             </div>
 
 
             <div class="column is-half">
-                <div class="content is-size-5">Search for users or enter a new name.</div>
+                <div class="content is-size-5 has-background-light">Search for users or enter a new name</div>
 
                 <label >
                     <input id="findInput" class="input" style="width:15em;" type="text" placeholder="Text input" maxlength="20"/>
@@ -87,8 +89,33 @@
                 <br>
                 <br>
 
+                <div class="content" style="width:20em; margin-left:auto; margin-right:auto;">
+                <table class="table" >
+                    <thead>
+                    <tr>
+                        <th>Info</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
 
+                    <tbody>
+                    <tr>
+                        <th >Name</th>
+                        <td id="userName">-</td>
+                    </tr>
 
+                    <tr>
+                        <th>Points</th>
+                        <td id="userPoints">-</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <div></div>
             </div>
 
 

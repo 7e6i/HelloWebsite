@@ -8,7 +8,7 @@
 
 // fancy firebase stuff
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-import { getFirestore,doc, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+import { getFirestore,doc, getDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC-mxNGZQQNFq89PYkLZ0TYlLT869nnYwQ",
@@ -24,109 +24,167 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// get counter doc
-const docRef = doc(db, "stuff", "counter");
+// get TheCounter doc
+const theCountRef = doc(db, "the_button_users", "TheCount");
 
 // preload elements
 const theCounter = document.getElementById("theCounter")
 const theButton = document.getElementById("theButton")
 var tempCount = 0;
-var currentUser = {"name":"superuser", "count":0}
+var currentUser = {"name":null, "count":null}
 
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+
 // load from db
 async function load_from_db(){
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-        var stored_count = docSnap.data()["count1"];
-        console.log(stored_count);
-    }
-    else {console.log("No such document!");}
-
+    const countSnap = await getDoc(theCountRef);
+    const stored_count = countSnap.data()["count"];
+    console.log(stored_count);
     theCounter.textContent = numberWithCommas(stored_count);
 }
-
 load_from_db();
 
 
-
 async function addOne(){
-
-
-
     tempCount+=1;
     theButton.textContent = tempCount;
-
 }
 theButton.addEventListener("click",addOne);
 
 
 async function savePoints(){
+
+    // if there aren't new points
     if (tempCount===0){
         theButton.textContent = "The Button"
     }
+
+    // if there are new points
     else if (tempCount> 0){
-        const docSnap = await getDoc(docRef);
-        const plus = docSnap.data()['count1'] + tempCount;
-        await updateDoc(docRef, {"count1": plus});
-        theCounter.textContent = numberWithCommas(plus);
-        console.log(plus);
+
+        // update the main counter
+        const countSnap = await getDoc(theCountRef);
+        const newMainCount = countSnap.data()['count'] + tempCount;
+        await updateDoc(theCountRef, {"count": newMainCount});
+        theCounter.textContent = numberWithCommas(newMainCount);
+        theButton.textContent = "0";
+
+        // check if it is TheCount document
+        if (currentUser["name"]==="TheCount"){
+            currentUser["count"] = newMainCount;
+            setStats(currentUser["name"], currentUser["count"]);
+        }
+
+        // otherwise update the user
+        else if (currentUser["name"] != null){
+
+            // query the name
+            const userRef = doc(db, "the_button_users", currentUser["name"]);
+            const userSnap = await getDoc(userRef);
+
+            // if the user is already created, update it
+            if (userSnap.exists()){
+                currentUser["count"] =  userSnap.data()['count'] + tempCount;
+                await updateDoc(userRef, {"count": currentUser["count"]});
+            }
+            // if not, make a new user
+            else{
+                currentUser["count"] =  tempCount;
+                await setDoc(doc(db, "the_button_users", currentUser["name"]), {"count": currentUser["count"]});
+            }
+
+            // update the screen
+            setStats(currentUser["name"], currentUser["count"])
+        }
+
+        // print out changes
+        console.log(newMainCount, currentUser["name"], currentUser["count"])
+
+        // update the temp counter
         tempCount = 0;
-        theButton.textContent = tempCount;
+
     }
-    setTimeout(savePoints, 60*1000);
+
+    setTimeout(savePoints, 10*1000);
 }
 savePoints();
-document.getElementById("saveButton").addEventListener("click",savePoints);
+//document.getElementById("saveButton").addEventListener("click",savePoints);
 
 
 
-async function pretend(){
-    const delay = Math.floor(Math.random() * 5000)+1;
-    const n = Math.floor(Math.random() * 5)+1;
-
-    const docSnap = await getDoc(docRef);
-    const plus = docSnap.data()['count1'] + n;
-    await updateDoc(docRef, {"count1": plus});
-    theCounter.textContent = numberWithCommas(plus);
-
-    console.log(plus);
-
-    setTimeout(pretend, delay);
-}
+// async function pretend(){
+//     const delay = Math.floor(Math.random() * 5000)+1;
+//     const n = Math.floor(Math.random() * 5)+1;
+//
+//     const docSnap = await getDoc(docRef);
+//     const plus = docSnap.data()['count1'] + n;
+//     await updateDoc(docRef, {"count1": plus});
+//     theCounter.textContent = numberWithCommas(plus);
+//
+//     console.log(plus);
+//
+//     setTimeout(pretend, delay);
+// }
 //pretend();
 
+
+
+function setStats(name, points){
+    document.getElementById("userName").textContent = name;
+
+    const userPoints = document.getElementById("userPoints");
+    if (typeof points === "number"){
+        userPoints.textContent = numberWithCommas(points)
+    }
+    else{
+        userPoints.textContent = points;
+    }
+
+}
 
 async function findUser(){
 
     const findInput = document.getElementById("findInput");
-    if (findInput === ""){return;}
+
+    // no input
+    if (findInput.value === ""){
+        currentUser = {"name":null, "count": null}
+        setStats("-","-")
+        return;
+    }
 
     const inputText = findInput.value;
     findInput.value = "";
     var userRef;
 
+    // check if valid name
     try{
-        userRef = doc(db, "counter_users", inputText);
+        if (inputText === "." || inputText === ".." || inputText==="__.*__"){throw new Error();}
+        userRef = doc(db, "the_button_users", inputText);
     }
     catch {
-        console.log(inputText + " is invalid");
+        currentUser = {"name":null, "count": null}
+        setStats(inputText, "invalid name");
+        //console.log(inputText + " is invalid");
         return;
     }
 
     const docSnap = await getDoc(userRef);
     if (docSnap.exists()) {
-        var userCount = docSnap.data()["count"];
-        console.log(inputText, userCount);
+        const cnt =docSnap.data()["count"];
+        currentUser = {"name":inputText, "count": cnt}
+        setStats(inputText, cnt)
+        //console.log(inputText, cnt);
     }
-    else {console.log(inputText + " doesn't exist");}
-
-
+    else {
+        currentUser = {"name":inputText, "count": 0}
+        setStats(inputText, "start clicking!")
+        //console.log(inputText + " doesn't exist");
+    }
 
 }
 document.getElementById("findUser").addEventListener("click", findUser);
