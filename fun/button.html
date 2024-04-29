@@ -7,10 +7,6 @@
         <title>Spencer Anderson</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- type="module" idk does something-->
-        <script src="crazy.js"></script>
-
-
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -64,8 +60,8 @@
     <body>
 
 
-        <div class="section has-text-centered">
-            <h1 class="title" id="theCounter" style="font-size: 5em;"><i class="fa-solid fa-spinner fa-spin-pulse"></i></h1>
+        <div class="content has-text-centered">
+            <h1 class="title" id="theCounter" style="font-size: 5em; margin: -.1em; padding: 0"><i class="fa-solid fa-spinner fa-spin-pulse"></i></h1>
         </div>
 
         <hr>
@@ -85,9 +81,14 @@
                 <div class="content is-size-5">Search for users or enter a new name.</div>
 
                 <label >
-                    <input class="input" style="width:20em;" type="text" placeholder="Text input" maxlength="20"/>
+                    <input id="findInput" class="input" style="width:15em;" type="text" placeholder="Text input" maxlength="20"/>
                 </label>
-                <button id="find" class="button is-light is-size-6">Find</button>
+                <button id="findUser" class="button is-light is-size-6">Find</button>
+                <br>
+                <br>
+
+
+
             </div>
 
 

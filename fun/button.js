@@ -30,8 +30,8 @@ const docRef = doc(db, "stuff", "counter");
 // preload elements
 const theCounter = document.getElementById("theCounter")
 const theButton = document.getElementById("theButton")
-const saveButton = document.getElementById("saveButton")
 var tempCount = 0;
+var currentUser = {"name":"superuser", "count":0}
 
 
 function numberWithCommas(x) {
@@ -67,7 +67,10 @@ theButton.addEventListener("click",addOne);
 
 
 async function savePoints(){
-    if (tempCount> 0){
+    if (tempCount===0){
+        theButton.textContent = "The Button"
+    }
+    else if (tempCount> 0){
         const docSnap = await getDoc(docRef);
         const plus = docSnap.data()['count1'] + tempCount;
         await updateDoc(docRef, {"count1": plus});
@@ -75,13 +78,11 @@ async function savePoints(){
         console.log(plus);
         tempCount = 0;
         theButton.textContent = tempCount;
-
     }
-
     setTimeout(savePoints, 60*1000);
 }
 savePoints();
-saveButton.addEventListener("click",savePoints);
+document.getElementById("saveButton").addEventListener("click",savePoints);
 
 
 
@@ -98,7 +99,36 @@ async function pretend(){
 
     setTimeout(pretend, delay);
 }
+//pretend();
 
-pretend();
+
+async function findUser(){
+
+    const findInput = document.getElementById("findInput");
+    if (findInput === ""){return;}
+
+    const inputText = findInput.value;
+    findInput.value = "";
+    var userRef;
+
+    try{
+        userRef = doc(db, "counter_users", inputText);
+    }
+    catch {
+        console.log(inputText + " is invalid");
+        return;
+    }
+
+    const docSnap = await getDoc(userRef);
+    if (docSnap.exists()) {
+        var userCount = docSnap.data()["count"];
+        console.log(inputText, userCount);
+    }
+    else {console.log(inputText + " doesn't exist");}
+
+
+
+}
+document.getElementById("findUser").addEventListener("click", findUser);
 
 
