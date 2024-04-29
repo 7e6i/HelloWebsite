@@ -193,7 +193,7 @@ document.getElementById("findUser").addEventListener("click", findUser);
 
 async function updateLeaderboard(){
     const theButtonUsersRef = collection(db, "the_button_users");
-    const q = query(theButtonUsersRef, orderBy("count", "desc"), limit(5+1));
+    const q = query(theButtonUsersRef, orderBy("count", "desc"), limit(10+1));
 
     const querySnapshot = await getDocs(q);
 
