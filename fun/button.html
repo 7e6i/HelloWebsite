@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+        <title>Spencer Anderson</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- type="module" idk does something-->
+        <script src="crazy.js"></script>
+
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://kit.fontawesome.com/89baa5856c.js" crossorigin="anonymous"></script>
+
+    </head>
+
+
+
+    <nav class="tabs is-centered is-medium" >
+        <ul>
+            <li >
+                <a href="../index.html">
+                    <span class="icon-text">
+                      <span class="icon">
+                        <i class="fa-solid fa-otter"></i>
+                      </span>
+                      <span>Home</span>
+                    </span>
+                </a>
+            </li>
+
+
+            <li >
+                <a href="../fun.html">
+                <span class="icon-text">
+                      <span class="icon">
+                        <i class="fa-solid fa-dragon"></i>
+                      </span>
+                      <span>Fun</span>
+                </span>
+                </a >
+            </li>
+
+            <li class="is-active">
+                <a href="button.html">
+                <span class="icon-text">
+                      <span class="icon">
+                        <i class="fa-solid fa-computer-mouse"></i>
+                      </span>
+                      <span>The Button</span>
+                </span>
+                </a >
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+    <body>
+
+
+        <div class="section has-text-centered">
+            <h1 class="title" id="theCounter" style="font-size: 5em;"><i class="fa-solid fa-spinner fa-spin-pulse"></i></h1>
+        </div>
+
+        <hr>
+
+        <div class="columns has-text-centered">
+            <div class="column is-half">
+
+                <div class="content is-size-5">Click the button to increase the counter.</div>
+                <button id="theButton" class="button is-info is-size-2" style="width: 7em">The Button </button>
+                <br><br>
+                <div class="content is-size-5">Points are saved every minute by default.<br>Press save to update the counter now.</div>
+                <button id="saveButton" class="button is-warning is-size-4">Save</button>
+            </div>
+
+
+            <div class="column is-half">
+                <div class="content is-size-5">Search for users or enter a new name.</div>
+
+                <label >
+                    <input class="input" style="width:20em;" type="text" placeholder="Text input" maxlength="20"/>
+                </label>
+                <button id="find" class="button is-light is-size-6">Find</button>
+            </div>
+
+
+        </div>
+
+
+
+    </body>
+
+    <script src="button.js" type="module"></script>
+
+
+</html>

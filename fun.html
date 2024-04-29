@@ -7,37 +7,33 @@
         <title>Spencer Anderson</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- type="module" idk does something-->
-        <script src="crazy.js"></script>
+        <script type="module" src="fun/fun.js"></script>
 
 
-
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
         <script src="https://kit.fontawesome.com/89baa5856c.js" crossorigin="anonymous"></script>
 
     </head>
 
-
-
-    <nav class="tabs is-centered is-medium" >
+    <div class="tabs is-centered is-medium" >
         <ul>
             <li >
-                <a href="../index.html">
-                    <span class="icon-text">
-                      <span class="icon">
-                        <i class="fa-solid fa-otter"></i>
-                      </span>
-                      <span>Home</span>
-                    </span>
+                <a href="index.html">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fa-solid fa-otter"></i>
+                  </span>
+                  <span>Home</span>
+                </span>
                 </a>
             </li>
 
             <li >
-                <a href="../sports.html">
+                <a href="sports.html">
                 <span class="icon-text">
                       <span class="icon">
-                       <i class="fa-solid fa-ranking-star"></i>
+                       <i class="fa-solid fa-ranking-star "></i>
                       </span>
                       <span>Sports</span>
                 </span>
@@ -45,7 +41,7 @@
             </li>
 
             <li >
-                <a href="../projects.html">
+                <a href="projects.html">
                 <span class="icon-text">
                       <span class="icon">
                         <i class="fa-solid fa-diagram-project"></i>
@@ -56,7 +52,7 @@
             </li>
 
             <li >
-                <a href="../academics.html">
+                <a href="academics.html">
             <span class="icon-text">
                   <span class="icon">
                     <i class="fa-solid fa-book"></i>
@@ -67,7 +63,7 @@
             </li>
 
             <li class="is-active">
-                <a href="crazy.html">
+                <a href="fun.html">
                 <span class="icon-text">
                       <span class="icon">
                         <i class="fa-solid fa-dragon"></i>
@@ -78,23 +74,31 @@
             </li>
 
         </ul>
-    </nav>
+    </div>
 
 
+    <div class="tabs is-centered is-medium" >
+        <ul>
+            <li >
+                <a href="fun/button.html">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fa-solid fa-computer-mouse"></i>
+                  </span>
+                  <span>The Button</span>
+                </span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <body>
-<!--        <div>-->
-<!--        <iframe src="https://www.desmos.com/calculator/hwiy2pqpvc?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>-->
-<!--    </div>-->
-
         <div class="section">
 
-            <div class="title is-size-4">Live pixel art</div>
-            <div class="subtitle is-size-5">(it looks weird on mobile because the boxes are squished? idk, need to look into it more.)</div>
-            <hr>
+
 
             <table class="has-content-centered is-bordered" style="margin-left: auto;
-                margin-right: auto;">
+                        margin-right: auto;">
 
                 <tbody id="tboday" class="tbody" >
 
@@ -106,21 +110,21 @@
             <script>
                 function tableCreate() {
 
-                  var tboday = document.getElementById("tboday");
+                    var tboday = document.getElementById("tboday");
 
 
-                  for (let i = 0; i < 10; i++) {
-                    var temp = "<tr>";
+                    for (let i = 0; i < 10; i++) {
+                        var temp = "<tr>";
 
-                    for (let j = 0; j < 80; j++) {
-                        temp += "<td id='("+i+","+j+")' style='height:15px;width:15px;'></td>";
+                        for (let j = 0; j < 80; j++) {
+                            temp += "<td id='("+i+","+j+")' style='height:15px;width:15px;'></td>";
+
+                        }
+                        temp = temp + "</tr>";
+
+                        tboday.innerHTML += temp;
 
                     }
-                    temp = temp + "</tr>";
-
-                    tboday.innerHTML += temp;
-
-                  }
 
                 }
 
@@ -128,22 +132,12 @@
 
             </script>
         </div>
-
         <hr>
 
 
 
-        <div class="section has-text-centered">
-            <button id="increase" class="button is-primary is-size-4">button </button>
-
-            <div class="title" id="counter">-</div>
-
-        </div>
-
-
     </body>
 
-    <script src="test.js" type="module"></script>
 
 
 </html>

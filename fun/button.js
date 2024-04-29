@@ -2,6 +2,8 @@
 //import { getFirestore } from "firebase/firestore";
 
 //https://stackoverflow.com/questions/69230383/failed-to-resolve-module-specifier-firebase-app
+//https://firebase.google.com/docs/firestore/quotas#limits
+
 
 
 // fancy firebase stuff
@@ -25,11 +27,20 @@ const db = getFirestore(app);
 // get counter doc
 const docRef = doc(db, "stuff", "counter");
 
+// preload elements
+const theCounter = document.getElementById("theCounter")
+const theButton = document.getElementById("theButton")
+const saveButton = document.getElementById("saveButton")
+var tempCount = 0;
+
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 // load from db
 async function load_from_db(){
     const docSnap = await getDoc(docRef);
-
 
     if (docSnap.exists()) {
         var stored_count = docSnap.data()["count1"];
@@ -37,35 +48,42 @@ async function load_from_db(){
     }
     else {console.log("No such document!");}
 
-    document.getElementById("counter").textContent = stored_count;
+    theCounter.textContent = numberWithCommas(stored_count);
 }
 
 load_from_db();
 
 
 
-async function addOne(n){
+async function addOne(){
 
-    const docSnap = await getDoc(docRef);
-    const plus = docSnap.data()['count1'] + 1;
-    await updateDoc(docRef, {"count1": plus});
-    counter.textContent = plus;
 
-    console.log(plus);
+
+    tempCount+=1;
+    theButton.textContent = tempCount;
+
 }
-document.getElementById("increase").addEventListener("click",addOne);
+theButton.addEventListener("click",addOne);
 
 
+async function savePoints(){
+    if (tempCount> 0){
+        const docSnap = await getDoc(docRef);
+        const plus = docSnap.data()['count1'] + tempCount;
+        await updateDoc(docRef, {"count1": plus});
+        theCounter.textContent = numberWithCommas(plus);
+        console.log(plus);
+        tempCount = 0;
+        theButton.textContent = tempCount;
 
-async function addMany(n){
+    }
 
-    const docSnap = await getDoc(docRef);
-    const plus = docSnap.data()['count1'] + n;
-    await updateDoc(docRef, {"count1": plus});
-    counter.textContent = plus;
-
-    console.log(plus);
+    setTimeout(savePoints, 60*1000);
 }
+savePoints();
+saveButton.addEventListener("click",savePoints);
+
+
 
 async function pretend(){
     const delay = Math.floor(Math.random() * 5000)+1;
@@ -74,7 +92,7 @@ async function pretend(){
     const docSnap = await getDoc(docRef);
     const plus = docSnap.data()['count1'] + n;
     await updateDoc(docRef, {"count1": plus});
-    counter.textContent = plus;
+    theCounter.textContent = numberWithCommas(plus);
 
     console.log(plus);
 
