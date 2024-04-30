@@ -1,10 +1,5 @@
-//import { initializeApp } from "firebase/app";
-//import { getFirestore } from "firebase/firestore";
-
 //https://stackoverflow.com/questions/69230383/failed-to-resolve-module-specifier-firebase-app
 //https://firebase.google.com/docs/firestore/quotas#limits
-
-
 
 // fancy firebase stuff
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
@@ -25,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // get TheCounter doc
+// TODO change to ref to collection, then each docref uses that
 const theCountRef = doc(db, "the_button_users", "TheCount");
 
 // preload elements
@@ -110,30 +106,12 @@ async function savePoints(){
     // update the temp counter
     tempCount = 0;
 
-    updateLeaderboard();
+    await updateLeaderboard();
 
     setTimeout(savePoints, 10*1000);
 }
 savePoints();
 //document.getElementById("saveButton").addEventListener("click",savePoints);
-
-
-
-// async function pretend(){
-//     const delay = Math.floor(Math.random() * 5000)+1;
-//     const n = Math.floor(Math.random() * 5)+1;
-//
-//     const docSnap = await getDoc(docRef);
-//     const plus = docSnap.data()['count1'] + n;
-//     await updateDoc(docRef, {"count1": plus});
-//     theCounter.textContent = numberWithCommas(plus);
-//
-//     console.log(plus);
-//
-//     setTimeout(pretend, delay);
-// }
-//pretend();
-
 
 
 function setStats(name, points){
@@ -211,5 +189,21 @@ async function updateLeaderboard(){
         i +=1;
     }
 
-
 }
+
+
+
+// async function pretend(){
+//     const delay = Math.floor(Math.random() * 5000)+1;
+//     const n = Math.floor(Math.random() * 5)+1;
+//
+//     const docSnap = await getDoc(docRef);
+//     const plus = docSnap.data()['count1'] + n;
+//     await updateDoc(docRef, {"count1": plus});
+//     theCounter.textContent = numberWithCommas(plus);
+//
+//     console.log(plus);
+//
+//     setTimeout(pretend, delay);
+// }
+//pretend();
