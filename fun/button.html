@@ -141,7 +141,12 @@
                             for (let i = 0; i <= 10; i++) {
                                 var temp = "<tr>";
 
-                                temp += "<th class='has-text-centered'>"+i+"</th>";
+                                if (i === 0){temp += "<th class='has-text-centered'>-</th>";}
+                                else if (i === 1) {temp += "<th class='has-text-centered'><i class='fa-sharp fa-solid fa-1 fa-2xl' style='color: #ff00d4;'></i></th>";}
+                                else if (i === 2) {temp += "<th class='has-text-centered'><i class='fa-sharp fa-solid fa-2 fa-xl' style='color: #00c8ff;'></i></th>";}
+                                else if (i === 3) {temp += "<th class='has-text-centered'><i class='fa-sharp fa-solid fa-3 fa-lg' style='color: #b3ff00;'></i></th>";}
+                                else{temp += "<th class='has-text-centered'>"+i+"</th>";}
+
                                 temp += "<td id='"+i+"name' class='has-text-centered'>-</td>";
                                 temp += "<td id='"+i+"points' class='has-text-centered'>-</td>";
 

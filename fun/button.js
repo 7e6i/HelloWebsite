@@ -91,11 +91,14 @@ async function savePoints(){
             currentUser["count"] =  userSnap.data()['count'] + tempCount;
             await updateDoc(userRef, {"count": currentUser["count"]});
         }
+
         // if not, make a new user
         else if (tempCount > 0){
             currentUser["count"] =  tempCount;
             await setDoc(doc(db, "the_button_users", currentUser["name"]), {"count": currentUser["count"]});
         }
+
+        // if tempCount is 0 and user hasn't been created, currentUser["count"] remains "start clicking!"
 
         // update the screen
         setStats(currentUser["name"], currentUser["count"])
@@ -138,7 +141,7 @@ function setStats(name, points){
 
     const userPoints = document.getElementById("userPoints");
     if (typeof points === "number"){
-        userPoints.textContent = numberWithCommas(points)
+        userPoints.textContent = numberWithCommas(points);
     }
     else{
         userPoints.textContent = points;
@@ -161,7 +164,7 @@ async function findUser(){
     findInput.value = "";
     var userRef;
 
-    // check if valid name
+    // check if name is valid
     try{
         if (inputText === "." || inputText === ".." || inputText==="__.*__"){throw new Error();}
         userRef = doc(db, "the_button_users", inputText);
@@ -173,16 +176,19 @@ async function findUser(){
         return;
     }
 
+
     const docSnap = await getDoc(userRef);
+    // if there is a user with that name, display it
     if (docSnap.exists()) {
         const cnt =docSnap.data()["count"];
         currentUser = {"name":inputText, "count": cnt}
         setStats(inputText, cnt)
         //console.log(inputText, cnt);
     }
+    // if there isn't a user, show "start clicking"
     else {
-        currentUser = {"name":inputText, "count": 0}
-        setStats(inputText, "start clicking!")
+        currentUser = {"name":inputText, "count": "start clicking!"}
+        setStats(inputText, "start clicking")
         //console.log(inputText + " doesn't exist");
     }
 
