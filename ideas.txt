@@ -1,0 +1,20 @@
+Home
+    - quotes
+    - favorite achievements
+Sports
+    - swim
+        - best times
+        - TYR suit timeline
+    - cubing
+    - speedrunning
+Projects
+    - snapchat
+    - spotify
+    - Mangled Music
+Academics
+    - papers
+    - resume
+    - grades (all of them)
+Fun
+    - the button
+    - god ranking list
