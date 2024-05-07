@@ -12,9 +12,6 @@
         <title>Spencer Anderson</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <script type="module" src="home/functions.js"></script>
-
-
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
         <script src="https://kit.fontawesome.com/89baa5856c.js" crossorigin="anonymous"></script>
@@ -85,8 +82,9 @@
 
 
     <body>
+        <!-- style="background-image:url('home/otter_square.png');" -->
+        <div class="section has-text-centered has-content-centered" >
 
-        <div class="section has-text-centered has-content-centered">
             <h1 class="title is-size-2">Hello, I am \( \mathbb{S} \rho e \eta c \epsilon r \)  \(\forall \aleph \mathcal{D} \exists \mathbb{R} \mathsf{5} \Theta \Pi\).</h1>
 
             <div class="content">
@@ -97,9 +95,21 @@
 
         <hr>
 
+        <div>
+            <div class="columns is-vcentered ">
+
+
+                <div class="column is-size-6 has-text-centered" id="quote">
+                    -
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
         <div class="section">
             <div class="columns is-vcentered has-text-centered">
-                <div class="column is-size-3 has-background-light" style="
+                <div class="column is-size-4 has-background-light" style="
                         margin: 50px;
                         border-radius: 25px;">
                     <div class="is-medium">Current date and time:</div>
@@ -110,11 +120,11 @@
                     <img src="home/otter_square.png" width="200" height="200" style="
                         border-radius: 25px;"></div>
 
-                <div class="column is-size-3 has-background-primary-light" style="
+                <div class="column is-size-4 has-background-primary-light" style="
                         margin: 50px;
                         border-radius: 25px;">
                     <div>Random number [1,1000]</div>
-                    <div id="random" class="is-family-code is-size-1">341</div>
+                    <div id="random" class="is-family-code is-size-3">341</div>
 
                 </div>
             </div>
@@ -166,4 +176,6 @@
         </div>
 
     </body>
+
+    <script type="module" src="home/home.js"></script>
 </html>
