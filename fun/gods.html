@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-        <title>Spencer Anderson</title>
+        <title>Gods</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
@@ -16,49 +16,16 @@
 
 
 
-    <nav class="tabs is-centered is-medium" >
+    <nav class="tabs is-left is-medium" >
         <ul>
-            <li >
-                <a href="../index.html">
-                        <span class="icon-text">
-                          <span class="icon">
-                            <i class="fa-solid fa-otter"></i>
-                          </span>
-                          <span>Home</span>
-                        </span>
-                </a>
-            </li>
-
-
-            <li >
-                <a href="../fun.html">
-                    <span class="icon-text">
-                          <span class="icon">
-                            <i class="fa-solid fa-dragon"></i>
-                          </span>
-                          <span>Fun</span>
-                    </span>
-                </a >
-            </li>
-
-            <li >
-                <a href="button.html">
-                    <span class="icon-text">
-                          <span class="icon">
-                            <i class="fa-solid fa-computer-mouse"></i>
-                          </span>
-                          <span>The Button</span>
-                    </span>
-                </a >
-            </li>
 
             <li class="is-active">
                 <a href="gods.html">
                     <span class="icon-text">
                       <span class="icon">
-                        <i class="fa-solid fa-mountain"></i>
+                        <i class="fa-solid fa-ranking-star"></i>
                       </span>
-                      <span>Gods</span>
+                      <span>Leaderboard</span>
                     </span>
                 </a>
             </li>
@@ -69,10 +36,45 @@
 
 
     <body>
-    Coming eventually?
-        <div class="section">
+    <div class="section">
+        <div class="title has-text-centered has-background-light">Leaderboard</div>
+        <!-- <div class="subtitle has-text-centered">Updated every minute</div> -->
+        <div class="content" style="margin-left:auto; margin-right:auto;">
+            <table class="table is-fullwidth" >
+                <thead>
+                <tr>
+                    <th class="has-text-centered">Rank</th>
+                    <th class="has-text-centered">Name</th>
+                    <th class="has-text-centered">Points</th>
+                </tr>
+                </thead>
 
+                <tbody id="leaderboardTable">
+
+                </tbody>
+                <script>
+                    function tableCreate() {
+
+                        var tboday = document.getElementById("leaderboardTable");
+
+
+                        for (let i = 1; i <= 10; i++) {
+                            var temp = "<tr>";
+                            temp += "<th class='has-text-centered'>"+i+"</th>";
+
+                            temp += "<td id='"+i+"name' class='has-text-centered'>-</td>";
+                            temp += "<td id='"+i+"points' class='has-text-centered'>-</td>";
+
+                            temp = temp + "</tr>";
+                            tboday.innerHTML += temp;
+                        }
+                    }
+                    tableCreate();
+                </script>
+
+            </table>
         </div>
+    </div>
 
 
 

@@ -10,26 +10,35 @@ const quoteArray = [
     "Do not go gentle into that good night - Dylan Thomas"
 ];
 
-function changeQuotes(){
+// function changeQuotes(){
+//     const n = Math.floor(Math.random() * 10000);
+//     //console.log(quoteArray);
+//     document.getElementById("quote").textContent = quoteArray[n % quoteArray.length];
+//
+//     setTimeout(changeQuotes, 5*1000);
+// }
+// changeQuotes();
+
+
+const verbList = ["overcast", "sunny", "gloomy", "glorious", "meh"]
+const colorList = [
+    "#0986ec",
+    "#f5d405",
+    "#445a6e",
+    "#c900ff",
+    "#81833f"]
+
+function paradise(){
     const n = Math.floor(Math.random() * 10000);
     //console.log(quoteArray);
-    document.getElementById("quote").textContent = quoteArray[n % quoteArray.length];
 
-    setTimeout(changeQuotes, 5*1000);
+    const ele = document.getElementById("quote")
+    ele.textContent = verbList[n % verbList.length];
+    ele.style.color = colorList[n % colorList.length];
+
+    setTimeout(paradise, 1*1000);
 }
-changeQuotes();
-
-
-// const verbDict = {
-//     "overcast" : "#0259b0",
-//     "sunny" : "#e8e535",
-//     "gloomy": "#445a6e",
-// }
-//
-// function paradise(){
-//     console.log(verbDict);
-// }
-// paradise();
+paradise();
 
 
 
