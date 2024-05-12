@@ -7,6 +7,7 @@
         <title>Gods</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <script src="leaderboard.js" type="module"></script>
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,12 +21,23 @@
         <ul>
 
             <li class="is-active">
-                <a href="gods.html">
+                <a href="leaderboard.html">
                     <span class="icon-text">
                       <span class="icon">
                         <i class="fa-solid fa-ranking-star"></i>
                       </span>
                       <span>Leaderboard</span>
+                    </span>
+                </a>
+            </li>
+
+            <li >
+                <a href="lookup.html">
+                    <span class="icon-text">
+                      <span class="icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </span>
+                      <span>Lookup</span>
                     </span>
                 </a>
             </li>
@@ -37,15 +49,17 @@
 
     <body>
     <div class="section">
-        <div class="title has-text-centered has-background-light">Leaderboard</div>
+        <!-- <div class="title has-text-centered has-background-light">Leaderboard</div> -->
         <!-- <div class="subtitle has-text-centered">Updated every minute</div> -->
         <div class="content" style="margin-left:auto; margin-right:auto;">
-            <table class="table is-fullwidth" >
+            <table class="table" >
                 <thead>
                 <tr>
                     <th class="has-text-centered">Rank</th>
                     <th class="has-text-centered">Name</th>
-                    <th class="has-text-centered">Points</th>
+                    <th class="has-text-centered">Exlir (plus)</th>
+                    <th class="has-text-centered">Ichor (minus)</th>
+                    <th class="has-text-centered">Manna (score)</th>
                 </tr>
                 </thead>
 
@@ -58,12 +72,14 @@
                         var tboday = document.getElementById("leaderboardTable");
 
 
-                        for (let i = 1; i <= 10; i++) {
+                        for (let i = 1; i <= 100; i++) {
                             var temp = "<tr>";
                             temp += "<th class='has-text-centered'>"+i+"</th>";
 
                             temp += "<td id='"+i+"name' class='has-text-centered'>-</td>";
-                            temp += "<td id='"+i+"points' class='has-text-centered'>-</td>";
+                            temp += "<td id='"+i+"exilir' class='has-text-centered'>-</td>";
+                            temp += "<td id='"+i+"ichor' class='has-text-centered'>-</td>";
+                            temp += "<td id='"+i+"manna' class='has-text-centered'>-</td>";
 
                             temp = temp + "</tr>";
                             tboday.innerHTML += temp;

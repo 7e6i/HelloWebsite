@@ -36,7 +36,7 @@ function paradise(){
     ele.textContent = verbList[n % verbList.length];
     ele.style.color = colorList[n % colorList.length];
 
-    setTimeout(paradise, 1*1000);
+    setTimeout(paradise, 5*1000);
 }
 paradise();
 
