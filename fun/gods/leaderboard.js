@@ -1,5 +1,16 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-import { getFirestore,doc, getDoc, getDocs, updateDoc, setDoc, query, orderBy, limit, collection} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    getDocs,
+    updateDoc,
+    setDoc,
+    query,
+    orderBy,
+    limit,
+    collection
+} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC-mxNGZQQNFq89PYkLZ0TYlLT869nnYwQ",
@@ -14,16 +25,47 @@ const firebaseConfig = {
 //init stuff
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const gods = collection(db, "greek_gods");
+const gods_coll = collection(db, "greek_gods");
 
 
 
-async function load_table(){
-
-    const ref = doc(gods, "top10");
+async function tableCreate() {
+    const ref = doc(gods_coll, "ranking");
     const docSnap = await getDoc(ref);
+    const data = docSnap.data();
+    //console.log(data, typeof data);
 
-    console.log(docSnap['1']);
+    var tboday = document.getElementById("leaderboardTable");
 
+    for (let i = 1; i <= 13; i++) {
+        var temp = "<tr>";
+        temp += "<th class='has-text-centered'>"+i+"</th>";
+
+        temp += "<td class='has-text-centered'>"+data[i][0]+"</td>";
+        temp += "<td class='has-text-centered'>"+data[i][1]+"</td>";
+        temp += "<td class='has-text-centered'>"+data[i][2]+"</td>";
+        temp += "<td class='has-text-centered'>"+data[i][3]+"</td>";
+
+        temp = temp + "</tr>";
+        tboday.innerHTML += temp;
+    }
+
+    document.getElementById("last-updated").textContent = data["last_updated"];
 }
-load_table();
+tableCreate();
+
+
+//
+// async function load_table() {
+//
+//     const ref = doc(gods, "top10");
+//     const docSnap = await getDoc(ref);
+//
+//     console.log(docSnap['1']);
+//
+// }
+//
+// load_table();
+
+
+
