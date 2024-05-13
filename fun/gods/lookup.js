@@ -27,16 +27,25 @@ const db = getFirestore(app);
 const gods_coll = collection(db, "greek_gods");
 
 
-var currentGod = null
-
 var actualElixir = 0;
 var actualIchor = 0;
 var tempElixir = 0;
 var tempIchor = 0;
 
 var refreshRate = 10;
-var updateIn = refreshRate;
+var updateIn = refreshRate+1;
 
+
+var currentGod = localStorage.getItem("currentGod");
+//console.log(currentGod);
+if (currentGod != null){
+    const userRef = doc(gods_coll, currentGod);
+    const docSnap = await getDoc(userRef);
+    document.getElementById("god-name").textContent = currentGod;
+    actualElixir = docSnap.data()["elixir"];
+    actualIchor = docSnap.data()["ichor"];
+    setCounts();
+}
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -72,7 +81,7 @@ async function findUser(){
     if (docSnap.exists()) {
         document.getElementById("lookup-message").textContent = "Search for a deity";
         document.getElementById("god-name").textContent = inputText;
-        currentGod = inputText;
+        localStorage.setItem("currentGod", inputText);
         actualElixir = docSnap.data()["elixir"];
         actualIchor = docSnap.data()["ichor"];
         setCounts();
