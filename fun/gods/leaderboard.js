@@ -3,12 +3,6 @@ import {
     getFirestore,
     doc,
     getDoc,
-    getDocs,
-    updateDoc,
-    setDoc,
-    query,
-    orderBy,
-    limit,
     collection
 } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
@@ -53,19 +47,4 @@ async function tableCreate() {
     document.getElementById("last-updated").textContent = data["last_updated"];
 }
 tableCreate();
-
-
-//
-// async function load_table() {
-//
-//     const ref = doc(gods, "top10");
-//     const docSnap = await getDoc(ref);
-//
-//     console.log(docSnap['1']);
-//
-// }
-//
-// load_table();
-
-
 
