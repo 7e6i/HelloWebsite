@@ -82,6 +82,8 @@ async function findUser(){
         document.getElementById("lookup-message").textContent = "Search for a deity";
         document.getElementById("god-name").textContent = inputText;
         localStorage.setItem("currentGod", inputText);
+        currentGod = inputText; // forgot to also update global variable
+        //console.log(inputText)
         actualElixir = docSnap.data()["elixir"];
         actualIchor = docSnap.data()["ichor"];
         setCounts();
