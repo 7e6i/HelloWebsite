@@ -5,7 +5,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
 import { getFirestore,doc, getDoc, getDocs, updateDoc, setDoc, query, orderBy, limit, collection} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
-const firebaseConfig = {
+    const firebaseConfig = {
     apiKey: "AIzaSyC-mxNGZQQNFq89PYkLZ0TYlLT869nnYwQ",
     authDomain: "hellowebsite-f5cc0.firebaseapp.com",
     projectId: "hellowebsite-f5cc0",
