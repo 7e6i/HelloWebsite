@@ -14,7 +14,12 @@ function updateDateTime() {
     let old = new Date(now.getUTCFullYear()+"-01-01T00:00:00.000Z")
     //console.log(old.toISOString())
     let dif = now - old - now.getTimezoneOffset()*60*1000
-    if (e){e.textContent = Math.round(dif/(6*6*24))/100000;}
+    if (e){e.textContent = Math.round(dif/(60*60*24))/1000;}
+
+    var e = document.querySelector('#school');
+    let fut = new Date("2025-12-20T00:00:00.000Z")
+    let dif2 = fut - now + now.getTimezoneOffset()*60*1000
+    if (e){e.textContent = Math.round(dif2/(60*60*24))/1000;}
 
     setTimeout(updateDateTime, 1000)
 }
