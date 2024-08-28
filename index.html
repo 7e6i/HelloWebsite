@@ -10,159 +10,38 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width ,initial-scale=1.0">
         <title>Home</title>
-        <link rel="icon" type="image/svg" href="home/otter-solid.svg">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-        <script src="https://kit.fontawesome.com/89baa5856c.js" crossorigin="anonymous"></script>
-
     </head>
-
-    <nav class="tabs is-centered is-medium" >
-        <ul>
-        <li class="is-active">
-            <a href="./">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="fa-solid fa-otter"></i>
-              </span>
-              <span>Home</span>
-            </span>
-            </a>
-        </li>
-
-        <li >
-            <a href="./sports/">
-            <span class="icon-text">
-                  <span class="icon">
-                   <i class="fa-solid fa-ranking-star "></i>
-                  </span>
-                  <span>Sports</span>
-            </span>
-            </a >
-        </li>
-
-        <li >
-            <a href="./projects/">
-            <span class="icon-text">
-                  <span class="icon">
-                    <i class="fa-solid fa-diagram-project"></i>
-                  </span>
-                  <span>Projects</span>
-            </span>
-            </a >
-        </li>
-
-        <li>
-            <a href="./fun/">
-            <span class="icon-text">
-                  <span class="icon">
-                    <i class="fa-solid fa-dragon"></i>
-                  </span>
-                  <span>Fun</span>
-            </span>
-            </a >
-        </li>
-
-      </ul>
-    </nav>
-
-
 
 
     <body>
-        <!-- style="background-image:url('home/otter_square.png');" -->
-        <div class="section has-text-centered has-content-centered" >
+    <div>Now</div>
+    <div id="now"></div>
 
-            <div class="content">
-                <blockquote style="max-width:500px; float:center;">As you can tell, I don't know much about web design. I am however a math major and know how to use fancy symbols.</blockquote>
-            </div>
+    <br>
 
-        </div>
+    <div>Current UTC datetime</div>
+    <div id="utcdatetime"></div>
 
-        <hr>
+    <br>
 
-        <div>
-            <div class="is-vcentered ">
-                <div class="column is-size-4 has-text-centered" style="background-color: #ffffff; vertical-align: middle">
-                    Just another <span class="is-size-2">[</span><span id="quote" class="is-size-2">overcast</span><span class="is-size-2">]</span> day in paradise
-                </div>
-            </div>
-        </div>
+    <div>Local datetime</div>
+    <div id="datetime"></div>
+    <br>
 
-        <hr>
+    <div>Local ISO 8601 format</div>
+    <div id="isoweek"></div>
+    <br>
 
-        <div class="section">
-            <div class="columns is-vcentered has-text-centered">
-                <div class="column is-size-4 has-background-light" style="
-                        margin: 50px;
-                        border-radius: 25px;">
-                    <div class="is-medium">Current date and time:</div>
-                    <div id="datetime" class="is-family-code"></div>
-                </div>
+    <div>Local day of year</div>
+    <div id="dayofyear"></div>
 
-                <div class="column" >
-                    <img src="home/otter_square.png" width="200" height="200" style="
-                        border-radius: 25px;"></div>
-
-                <div class="column is-size-4 has-background-primary-light" style="
-                        margin: 50px;
-                        border-radius: 25px;">
-                    <div>Random number [1,1000]</div>
-                    <div id="random" class="is-family-code is-size-3">341</div>
-
-                </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="section is-size-3 has-text-centered">
-            <div>When \(a \ne 0\), there is one solution to \(ax + b = 0\):
-            $$x = \frac{-b}{a}.$$</div>
-        </div>
-
-        <hr>
-
-        <div class="section is-size-4 has-text-centered">
-            <div>When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\):
-            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</div>
-        </div>
-
-        <hr>
-
-        <div class="section is-size-5 has-text-centered">
-            <div>When \(a \ne 0\), there are three solutions to \(ax^3 + bx^2 + cx +d = 0\):</div>
-            <div style="overflow-x:scroll; overflow-y:hidden;">
-            $$x = \sqrt[3]{
-                \left( \frac{bc}{6a^2} - \frac{d}{2a}-\frac{b^3}{27a^3} \right)
-                +\sqrt{\left( \frac{bc}{6a^2} - \frac{d}{2a}-\frac{b^3}{27a^3} \right)^2 + \left( \frac{c}{3a}-\frac{b^2}{9a^2} \right)^3} }
-                +\sqrt[3]{ \left( \frac{bc}{6a^2} - \frac{d}{2a}-\frac{b^3}{27a^3} \right) -  \sqrt{\left( \frac{bc}{6a^2} - \frac{d}{2a}-\frac{b^3}{27a^3} \right)^2 + \left( \frac{c}{3a}-\frac{b^2}{9a^2} \right)^3} } -\frac{b}{3a} .$$
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class="section is-size-8 has-text-centered" >
-            <div class="has-text-centered">When \(a \ne 0\), there are four solutions to \(ax^4 + bx^3 + cx^2 +dx+e = 0\):</div>
-            <br>
-            <a href="home/quartic.html">I had to make a new page for the equation because it takes too long to load.</a>
+    <hr>
 
 
-        </div>
 
-        <hr>
-
-        <div class="section is-size-9">
-            <div class="has-text-centered">When \(a \ne 0\), there are five solutions to \(ax^5 + bx^4 + cx^3 +dx^2 +ex+f = 0\):</div><br>
-            <div>Unfortunately in 1799 some math nerds conjectured that there is no algebraic expression for the solutions of a general quintic equation. This was later proved to be true in 1824.
-            If you actually need to find the roots of a quintic (or higher power) for some reason, I suggest <a href="https://www.wolframalpha.com/">Wolfram Alpha</a>. </div>
-        </div>
 
     </body>
 
-    <script type="module" src="home/index.js"></script>
+    <script type="module" src="index.js"></script>
+
 </html>
