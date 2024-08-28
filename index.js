@@ -46,13 +46,3 @@ function isoweek(){
     if (e){e.textContent = res;}
 }
 isoweek()
-
-
-
-function countdowns(){
-    var d = new Date();
-
-
-}
-
-
