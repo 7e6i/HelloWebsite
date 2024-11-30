@@ -25,3 +25,5 @@ function hello(){
 }
 
 btn.addEventListener('click', hello)
+
+hello()
