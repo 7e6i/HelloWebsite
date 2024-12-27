@@ -11,15 +11,14 @@ function hello(){
     let high_n = high.value;
     let divs_n = divs.value;
 
-    console.log(low_n);
+    // solves the problem by finding the interstep ratio (the log basically)
+    // let inter = (high_n / low_n) ** (1/divs_n);
+    // (low_n * inter **i).toFixed(4)
 
-    //console.log(low_n, high_n, divs_n);
-
-    let inter = (high_n / low_n) ** (1/divs_n);
     output.innerHTML = ``
 
     for (let i = 0; i <= divs_n; i++) {
-        output.innerHTML += "<div>" + i + " - " + (low_n * inter **i).toFixed(4) + "</div>"
+        output.innerHTML += "<div>" + i + " - " +  (low_n * (high_n/low_n)**(i/divs_n)).toFixed(4) + "</div>"
     }
 
 }
